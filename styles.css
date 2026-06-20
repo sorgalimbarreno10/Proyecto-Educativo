@@ -1,0 +1,113 @@
+:root {
+    --primary-pink: #ff69b4;
+    --deep-purple: #8e44ad;
+    --light-blue: #e1f5fe;
+    --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* --- ESTRUCTURA PARA FOOTER SIEMPRE ABAJO --- */
+body {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
+    background-image: radial-gradient(#ff69b433 2px, transparent 2px);
+    background-size: 40px 40px;
+}
+
+nav {
+    background: var(--gradient);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+main {
+    flex: 1 0 auto; /* OCUPA TODO EL ESPACIO Y EMPUJA EL FOOTER */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+footer {
+    background: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+/* --- ESTILOS DE TEXTO --- */
+.page-header { text-align: center; margin-bottom: 40px; }
+.section-title { color: var(--deep-purple); font-size: 2.2rem; margin: 0; }
+.subtitle { font-size: 1.1rem; color: #666; margin-top: 10px; }
+
+/* --- GRID RESPONSIVO Y SIMÉTRICO --- */
+.grid-container {
+    display: grid;
+    /* Esto hace que las cartas se centren y se ajusten solas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
+    gap: 25px;
+    width: 100%;
+    justify-content: center; /* CENTRA LA UNIDAD 3 SI ESTÁ SOLA ABAJO */
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 5px solid var(--primary-pink);
+    transition: 0.3s;
+}
+
+.card:hover { transform: translateY(-8px); }
+.card-header { background: var(--gradient); color: white; padding: 20px; text-align: center; }
+.card-header h3 { margin: 0; font-size: 1.2rem; }
+
+.card-body { 
+    padding: 20px; 
+    text-align: center; 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+/* --- BOTONES --- */
+.btn-main, .btn-purple {
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.btn-main { background: #ffeaa7; color: #d63031; }
+.btn-purple { background: var(--deep-purple); color: white; }
+
+/* --- AJUSTE PARA MÓVIL --- */
+@media (max-width: 600px) {
+    .section-title { font-size: 1.8rem; }
+    nav { flex-direction: column; padding: 15px; text-align: center; }
+    nav ul { margin-top: 10px; padding: 0; }
+    nav ul li { margin: 0 10px; }
+    
+    .grid-container {
+        grid-template-columns: 1fr; /* Una sola columna en móvil para evitar errores */
+        max-width: 320px;
+    }
+}
