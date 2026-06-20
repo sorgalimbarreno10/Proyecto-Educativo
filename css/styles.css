@@ -17,6 +17,9 @@ body {
     background-size: 40px 40px;
     color: #444;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* El cuerpo siempre medirá al menos el alto de la pantalla */
 }
 
 /* Navbar con degradado */
@@ -73,11 +76,12 @@ nav ul li a:hover { color: #ffeaa7; }
 
 .btn-main:hover { transform: scale(1.1); background: white; }
 
-/* Grid de Unidades en contenidos.html */
 .grid-container {
-    padding: 30px 10%; /* Aumentamos el margen lateral para que las cartas sean menos anchas */
+    padding: 30px 5%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Bajamos el min-width de 300 a 260 */
+    /* justify-content: center asegura que la Unidad 3 quede en el medio si está sola */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); 
+    justify-content: center; 
     gap: 25px;
 }
 
@@ -121,13 +125,13 @@ nav ul li a:hover { color: #ffeaa7; }
     line-height: 1.5;
 }
 
-/* Footer multicolor */
 footer {
+    flex-shrink: 0; /* Evita que el footer se encoja */
     background: #2d3436;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
+    width: 100%;
 }
 
 .section-title {
@@ -267,6 +271,10 @@ footer {
     background: #7d3c98 !important;
 }
 
+html, body {
+    height: 100%; /* Necesario para que el body ocupe toda la pantalla */
+}
+
 /* Estilo para que toda la barra de la lección sea cliqueable */
 .card ul li {
     margin: 12px 0;
@@ -306,15 +314,44 @@ footer {
     text-shadow: 1px 1px 0px white; /* Un pequeño relieve blanco */
 }
 
-/* Responsivo para celulares */
+.flex-center, .grid-container {
+    flex: 1 0 auto; /* Esto empuja el footer hacia abajo si hay poco contenido */
+}
+
+/* --- MEJORA DE LA LANDING EN MÓVIL --- */
 @media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 80vh; /* Se adapta al contenido */
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem; /* Tamaño más cómodo para pulgares */
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Ajuste para las biografías en móvil */
     .profile-card {
-        flex-direction: column;
-        text-align: center;
+        padding: 20px;
+        margin: 10px;
     }
+    
     .profile-img {
+        flex: 0 0 150px;
+        height: 150px;
         margin-right: 0;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
-    .hero h1 { font-size: 2.5rem; }
+
+    /* Ajuste de las listas de lecciones en móvil */
+    .card ul li a {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
 }
