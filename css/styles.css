@@ -4,25 +4,35 @@
     --light-purple: #a29bfe;
     --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
     --bg-color: #fcf0f7;
-    --white: #ffffff;
+}
+
+/* --- ESTRUCTURA BASE (FOOTER SIEMPRE ABAJO) --- */
+* { box-sizing: border-box; }
+
+html, body {
+    height: 100%;
+    margin: 0;
 }
 
 body {
     font-family: 'Quicksand', 'Poppins', sans-serif;
-    margin: 0;
-    /* Cambiamos a un fondo con un toque más rosado/lavanda pastel para que se note el cambio */
     background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
-    /* Patrón de puntos un poco más oscuros para que sean visibles */
     background-image: radial-gradient(#ff69b433 2px, transparent 2px);
     background-size: 40px 40px;
     color: #444;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* El cuerpo siempre medirá al menos el alto de la pantalla */
+    flex-direction: column; /* Organiza Nav, Contenido y Footer en columna */
 }
 
-/* Navbar con degradado */
+/* El contenido principal ocupa todo el espacio sobrante */
+main, .flex-content {
+    flex: 1 0 auto; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- NAVEGACIÓN --- */
 nav {
     background: var(--gradient);
     padding: 1rem 5%;
@@ -30,24 +40,17 @@ nav {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0;
 }
 
-.logo { color: white; font-size: 1.5rem; font-weight: bold; }
+.logo { color: white; font-size: 1.3rem; font-weight: bold; }
+nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 
-nav ul { display: flex; list-style: none; margin: 0; }
-nav ul li { margin-left: 25px; }
-nav ul li a { 
-    color: white; 
-    text-decoration: none; 
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-nav ul li a:hover { color: #ffeaa7; }
-
-/* Hero Section (Index) */
+/* --- HERO / LANDING --- */
 .hero {
-    height: 80vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,36 +58,20 @@ nav ul li a:hover { color: #ffeaa7; }
     text-align: center;
     background: url('https://www.transparenttextures.com/patterns/cubes.png'), var(--gradient);
     color: white;
-    padding: 0 20px;
+    padding: 40px 20px;
 }
 
-.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-.hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; }
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+.hero p { font-size: 1.1rem; max-width: 700px; margin-bottom: 2rem; line-height: 1.6; }
 
-/* Botón llamativo */
-.btn-main {
-    background: #ffeaa7;
-    color: #d63031;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s;
-}
-
-.btn-main:hover { transform: scale(1.1); background: white; }
-
+/* --- CONTENEDORES Y CARTAS --- */
 .grid-container {
-    padding: 30px 5%;
+    padding: 40px 5%;
     display: grid;
-    /* justify-content: center asegura que la Unidad 3 quede en el medio si está sola */
     grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); 
     justify-content: center; 
-    gap: 25px;
+    gap: 30px;
 }
-
 
 .card {
     background: white;
@@ -92,266 +79,111 @@ nav ul li a:hover { color: #ffeaa7; }
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     border-bottom: 5px solid var(--primary-pink);
-    transition: 0.3s;
     display: flex;
     flex-direction: column;
-    /* Reducimos de 380px a 330px (aprox 10-12% menos) */
-    min-height: 330px; 
+    height: auto; /* Quitamos el min-height fijo que las estiraba */
+    transition: 0.3s;
 }
-
 
 .card:hover { transform: translateY(-10px); }
-
-.card-header { 
-    background: var(--gradient); 
-    color: white; 
-    padding: 18px; /* Antes 25px */
-    text-align: center; 
-}
+.card-header { background: var(--gradient); color: white; padding: 20px; text-align: center; }
+.card-header h3 { margin: 0; font-size: 1.2rem; }
 
 .card-body { 
-    padding: 20px; /* Antes 30px */
+    padding: 25px; 
     text-align: center;
-    flex-grow: 1; 
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center;     
+    justify-content: space-between;
 }
 
-.card-body p {
-    margin-bottom: 20px;
-    font-size: 0.95rem; /* Texto un poco más pequeño para que quepa bien */
-    line-height: 1.5;
-}
-
-footer {
-    flex-shrink: 0; /* Evita que el footer se encoja */
-    background: #2d3436;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-}
-
-.section-title {
-    text-align: center;
-    color: var(--deep-purple);
-    font-size: 2.5rem;
-    margin-top: 0; /* Quitamos margen para que no se despegue del borde */
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 0px white; /* Relieve para que se lea mejor sobre el celeste */
-}
-
-.perfiles-flex {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 30px;
-    padding: 0 5%;
-}
-
-.profile-card {
-    background-color: white; /* Las dejamos blancas para que resalten sobre el celeste */
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    padding: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border: 2px solid #b3e5fc; /* Un borde azul muy finito para combinar */
-    margin-bottom: 30px;
-}
-
-.profile-img {
-    flex: 0 0 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    /* Borde blanco grueso para que resalte sobre el celeste */
-    border: 6px solid white; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-right: 30px;
-}
-
-.profile-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-info h3 {
-    margin: 0;
-    color: var(--deep-purple);
-    font-size: 1.8rem;
-}
-
-.tagline {
-    color: var(--primary-pink);
-    font-weight: bold;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.bio-text {
-    line-height: 1.6;
-    color: #666;
-    font-size: 1.05rem;
-}
-
-.card-header h3 {
-    margin: 0;
-    font-size: 1.3rem; /* Texto un poco más pequeño */
-}
-
+/* --- LECCIONES / BIOGRAFÍAS (CONTAINER) --- */
 .container {
     max-width: 800px;
+    width: 90%; /* Se adapta a pantallas pequeñas */
     margin: 40px auto;
-    padding: 40px;
-    /* Cambiamos el fondo de este bloque a celeste claro pastel */
+    padding: 30px;
     background-color: #e1f5fe; 
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 3px solid var(--deep-purple); 
 }
 
-.container p {
-    font-weight: 600; /* Texto en negrita para mejor lectura */
-    color: #2d3436;   /* Un gris casi negro para máximo contraste */
-    line-height: 1.8;
-}
+.container p { font-weight: 600; color: #2d3436; line-height: 1.7; }
 
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-}
-
-.nav-buttons {
-    display: flex;
-    justify-content: space-between; /* Uno a la izquierda y otro a la derecha */
-    align-items: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-
-/* --- Estilo para el botón de "Anterior" --- */
-.btn-prev {
-    background: #dfe6e9;
-    color: #2d3436;
-    padding: 10px 20px;
+/* --- BOTONES --- */
+.btn-main, .btn-purple, .btn-prev {
+    padding: 12px 25px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
-    transition: 0.3s;
-}
-
-.btn-prev:hover {
-    background: #b2bec3;
-    transform: translateX(-5px); /* Pequeño efecto hacia la izquierda */
-}
-
-/* Clase específica para botones con fondo morado */
-.btn-purple {
-    background: var(--deep-purple) !important;
-    color: white !important; /* Texto blanco forzado */
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
     display: inline-block;
     transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+    text-align: center;
 }
 
-.btn-purple:hover {
-    transform: scale(1.05);
-    background: #7d3c98 !important;
+.btn-main { background: #ffeaa7; color: #d63031; }
+.btn-purple { background: var(--deep-purple); color: white; }
+.btn-prev { background: #dfe6e9; color: #444; margin-bottom: 10px; }
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para que en móvil se pongan uno sobre otro si no caben */
+    gap: 15px;
+    margin-top: 30px;
 }
 
-html, body {
-    height: 100%; /* Necesario para que el body ocupe toda la pantalla */
+/* --- FOOTER --- */
+footer {
+    background: #2d3436;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* No permite que el footer se achique */
 }
 
-/* Estilo para que toda la barra de la lección sea cliqueable */
-.card ul li {
-    margin: 12px 0;
-    padding: 0; /* Quitamos el padding de aquí */
-    background: #f3f0ff; 
-    border-radius: 12px;
-    transition: 0.3s ease;
-    overflow: hidden; /* Importante para que el enlace respete los bordes redondeados */
+/* --- PERFILES --- */
+.profile-card {
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 2px solid #b3e5fc;
 }
 
-.card ul li a {
-    display: block; /* Esto hace que el enlace ocupe TODO el ancho y alto */
-    padding: 18px 25px; /* El padding ahora está dentro del enlace */
-    text-decoration: none;
-    color: #444;
-    font-weight: bold;
-    width: 100%;
-    box-sizing: border-box;
+.profile-img {
+    flex: 0 0 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-pink);
+    margin-right: 20px;
 }
 
-.card ul li:hover {
-    transform: translateX(8px); /* Efecto visual de desplazamiento */
-    background: #e9e3ff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
+.profile-img img { width: 100%; height: 100%; object-fit: cover; }
 
-.profile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-}
+/* --- LISTAS DE LECCIONES --- */
+.card ul { list-style: none; padding: 0; margin: 0; }
+.card ul li { margin: 10px 0; background: #f3f0ff; border-radius: 10px; overflow: hidden; }
+.card ul li a { display: block; padding: 15px; text-decoration: none; color: #444; font-weight: bold; }
 
-/* Ajuste opcional: Si quieres que el texto dentro sea aún más legible con el azul */
-.profile-info h3 {
-    margin: 0;
-    color: var(--deep-purple);
-    font-size: 2rem;
-    text-shadow: 1px 1px 0px white; /* Un pequeño relieve blanco */
-}
-
-.flex-center, .grid-container {
-    flex: 1 0 auto; /* Esto empuja el footer hacia abajo si hay poco contenido */
-}
-
-/* --- MEJORA DE LA LANDING EN MÓVIL --- */
+/* --- VISTA MÓVIL (QUERIES) --- */
 @media (max-width: 768px) {
-    .hero {
-        height: auto;
-        min-height: 80vh; /* Se adapta al contenido */
-        padding: 60px 20px;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem; /* Tamaño más cómodo para pulgares */
-        line-height: 1.2;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        padding: 0 10px;
-    }
-
-    /* Ajuste para las biografías en móvil */
-    .profile-card {
-        padding: 20px;
-        margin: 10px;
-    }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 0.95rem; }
     
-    .profile-img {
-        flex: 0 0 150px;
-        height: 150px;
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
+    .container { padding: 20px; margin: 20px auto; }
+    
+    .profile-card { flex-direction: column; text-align: center; }
+    .profile-img { margin-right: 0; margin-bottom: 15px; }
 
-    /* Ajuste de las listas de lecciones en móvil */
-    .card ul li a {
-        padding: 15px;
-        font-size: 0.95rem;
-    }
+    nav { flex-direction: column; gap: 10px; text-align: center; }
+    nav ul li { margin: 0 10px; }
 }
