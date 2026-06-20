@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduPortal - Bienvenidos</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
@@ -16,20 +17,24 @@
         </ul>
     </nav>
 
-    <header class="hero">
-        <h1>¡Hola, Colegas Educadores!</h1>
-        <p>Te damos la bienvenida a nuestro portal académico. Aquí encontrarás recursos diseñados con pasión para transformar la educación primaria.</p>
-        <a href="contenidos.html" class="btn-main">Descubrir Materiales ➔</a>
-    </header>
+    <!-- EL MAIN ENVOLVIENDO TODO EL CONTENIDO CENTRAL -->
+    <main>
+        <header class="hero">
+            <h1>¡Hola, Colegas Educadores!</h1>
+            <p>Te damos la bienvenida a nuestro portal académico. Aquí encontrarás recursos diseñados con pasión para transformar la educación primaria.</p>
+            <a href="contenidos.html" class="btn-main">Descubrir Materiales ➔</a>
+        </header>
 
-    <section style="background: white; padding: 40px; text-align: center;">
-    <h2 style="color: var(--deep-purple);">Un proyecto impulsado por:</h2>
-    <p style="font-size: 1.2rem;">
-        <strong>Sorgalim Barreno</strong> y <strong>Michel Diaz</strong>
-    </p>
-    <a href="nosotros.html" style="color: var(--primary-pink); text-decoration: none; font-weight: bold;">Leer más sobre nosotras ➔</a>
-</section>
+        <section class="credits-section">
+            <h2>Un proyecto impulsado por:</h2>
+            <p><strong>Sorgalim Barreno</strong> y <strong>Michel Diaz</strong></p>
+            <a href="nosotros.html" class="btn-read-more">Leer más sobre nosotras ➔</a>
+        </section>
+    </main>
 
-    
+    <!-- AÑADIMOS EL FOOTER QUE FALTABA -->
+    <footer>
+        <p>Sorgalim Barreno & Michel Diaz | 2026</p>
+    </footer>
 </body>
 </html>
