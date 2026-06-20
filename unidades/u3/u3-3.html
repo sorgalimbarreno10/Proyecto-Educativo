@@ -4,36 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lección 3.3 - EduPortal</title>
-    <link rel="stylesheet" href="../../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff69b4;
+            --deep-purple: #8e44ad;
+            --light-blue: #e1f5fe;
+            --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
+        }
+
+        * { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
+            background-image: radial-gradient(#ff69b433 2px, transparent 2px);
+            background-size: 40px 40px;
+            color: #444;
+        }
+
+        /* Navegación */
+        nav { 
+            background: var(--gradient); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-shrink: 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { color: white; font-size: 1.2rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin-left: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        /* Contenido */
+        main { 
+            flex: 1 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 30px 15px; 
+            width: 100%; 
+        }
+
+        .container {
+            background-color: white;
+            border: 3px solid var(--deep-purple);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--primary-pink); margin-top: 0; margin-bottom: 20px; font-size: 1.8rem; }
+        p { font-weight: 600; line-height: 1.8; color: #2d3436; margin-bottom: 20px; }
+
+        /* Cuadro Sabías que */
+        .sabias-que {
+            background: #fff9db;
+            padding: 25px;
+            border-left: 5px solid #fcc419;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .sabias-que strong { display: block; margin-bottom: 10px; color: #e67e22; }
+        .sabias-que p { margin: 0; font-size: 1rem; color: #555; }
+
+        /* Navegación final de portafolio */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            gap: 15px;
+        }
+        .btn-prev {
+            background: #dfe6e9;
+            color: #2d3436;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .btn-finish {
+            background: var(--deep-purple);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
+            transition: 0.3s;
+        }
+        .btn-finish:hover {
+            transform: scale(1.05);
+            background: #7d3c98;
+        }
+
+        /* Footer */
+        footer { 
+            background: #2d3436; 
+            color: white; 
+            text-align: center; 
+            padding: 15px; 
+            flex-shrink: 0; 
+            font-size: 0.8rem; 
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .nav-buttons { flex-direction: column-reverse; }
+            .btn-prev, .btn-finish { width: 100%; text-align: center; }
+            .container { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="logo">EduPortal ✨</div>
         <ul>
             <li><a href="../../index.html">Inicio</a></li>
-            <li><a href="../unidad3.html">Volver</a></li>
+            <li><a href="../../contenidos.html">Contenidos</a></li>
         </ul>
     </nav>
 
-    <article class="container">
-        <h2 style="color: var(--primary-pink); margin-bottom: 20px;">3.3 Adaptaciones Curriculares</h2>
-        
-        <p>Son los ajustes y modificaciones que se realizan en los diferentes elementos de la propuesta educativa para responder a las Necesidades Específicas de Apoyo Educativo (NEAE) de un alumno.</p>
-        
-        <p>Existen adaptaciones de acceso (rampas, materiales con texturas, lupas) y adaptaciones curriculares propiamente dichas (modificar objetivos o criterios de evaluación). El fin es nivelar el terreno para que el estudiante pueda demostrar su potencial real.</p>
-        
-        <div class="sabias-que" style="background: #fff9db; padding: 25px; border-left: 5px solid #fcc419; border-radius: 10px; margin: 30px 0;">
-            <strong style="display: block; margin-bottom: 10px;">💡 Sabías que...</strong>
-            <p style="margin: 0;">Una adaptación curricular no es "hacer la tarea más fácil", es proporcionar el medio adecuado para que el estudiante acceda al mismo conocimiento que sus compañeros.</p>
-        </div>
+    <main>
+        <article class="container">
+            <h2>3.3 Adaptaciones Curriculares</h2>
+            
+            <p>
+                Son los ajustes, modificaciones y apoyos que se realizan en los diferentes elementos de la propuesta educativa para responder a las Necesidades Específicas de Apoyo Educativo (NEAE) de un alumno.
+            </p>
+            
+            <p>
+                Existen adaptaciones de acceso (como rampas, lupas o materiales con texturas) y adaptaciones curriculares propiamente dichas (como modificar objetivos, metodologías o criterios de evaluación). El objetivo es nivelar el terreno para que cada estudiante pueda demostrar su verdadero potencial sin ser limitado por barreras físicas o de aprendizaje.
+            </p>
 
-        <div class="nav-buttons">
-            <a href="u3-2.html" class="btn-prev">❮ Anterior (3.2)</a>
-            <a href="../../contenidos.html" class="btn-purple">¡Finalizar Portafolio! 🎓</a>
-        </div>
-    </article>
+            <div class="sabias-que">
+                <strong>💡 Sabías que...</strong>
+                <p>Realizar una adaptación curricular no significa "hacer la tarea más fácil", sino proporcionar el medio o la forma adecuada para que el estudiante acceda al mismo conocimiento que sus compañeros.</p>
+            </div>
 
-    <footer><p>Sorgalim & Michel | 2026</p></footer>
+            <div class="nav-buttons">
+                <a href="u3-2.html" class="btn-prev">❮ Anterior (3.2)</a>
+                <a href="../../contenidos.html" class="btn-finish">¡Finalizar Portafolio! 🎓</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>Sorgalim Barreno & Michel Diaz | 2026</footer>
 </body>
 </html>

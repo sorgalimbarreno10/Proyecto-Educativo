@@ -2,43 +2,165 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lección 1.2 - EduPortal</title>
-    <link rel="stylesheet" href="../../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff69b4;
+            --deep-purple: #8e44ad;
+            --light-blue: #e1f5fe;
+            --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
+        }
+
+        * { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
+            background-image: radial-gradient(#ff69b433 2px, transparent 2px);
+            background-size: 40px 40px;
+            color: #444;
+        }
+
+        /* Navegación Superior */
+        nav { 
+            background: var(--gradient); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-shrink: 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { color: white; font-size: 1.2rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin-left: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        /* Contenido */
+        main { 
+            flex: 1 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 30px 15px; 
+            width: 100%; 
+        }
+
+        .container {
+            background-color: white;
+            border: 3px solid var(--deep-purple);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--primary-pink); margin-top: 0; margin-bottom: 20px; font-size: 1.8rem; }
+        p { font-weight: 600; line-height: 1.8; color: #2d3436; margin-bottom: 20px; }
+
+        ul.tools-list { font-weight: 600; line-height: 1.8; color: #2d3436; margin-bottom: 25px; padding-left: 20px; }
+        ul.tools-list li { margin-bottom: 10px; }
+
+        /* Cuadro Sabías que */
+        .sabias-que {
+            background: #fff9db;
+            padding: 25px;
+            border-left: 5px solid #fcc419;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .sabias-que strong { display: block; margin-bottom: 10px; color: #e67e22; }
+        .sabias-que p { margin: 0; font-size: 1rem; color: #555; }
+
+        /* Navegación entre lecciones */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+        .btn-prev {
+            background: #dfe6e9;
+            color: #2d3436;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .btn-next {
+            background: #ffeaa7;
+            color: #d63031;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer { 
+            background: #2d3436; 
+            color: white; 
+            text-align: center; 
+            padding: 15px; 
+            flex-shrink: 0; 
+            font-size: 0.8rem; 
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .nav-buttons { flex-direction: column-reverse; }
+            .btn-prev, .btn-next { width: 100%; text-align: center; }
+            .container { padding: 20px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="logo">EduPortal ✨</div>
         <ul>
             <li><a href="../../index.html">Inicio</a></li>
-            <li><a href="../unidad1.html">Volver</a></li>
+            <li><a href="../../contenidos.html">Contenidos</a></li>
         </ul>
     </nav>
 
-    <article class="container">
-        <h2 style="color: var(--primary-pink); margin-bottom: 20px;">1.2 Herramientas Digitales Imprescindibles</h2>
-        
-        <p>
-            Para un docente moderno en educación primaria, existen herramientas que no solo ahorran tiempo, sino que transforman la estética y el orden de la clase. Algunas de las más destacadas son:
-        </p>
-        
-        <ul style="font-weight: 600; line-height: 1.8; color: #2d3436; margin-left: 20px;">
-            <li><strong>Canva para Educación:</strong> Permite diseñar material visual increíble (infografías, presentaciones) sin ser diseñador.</li>
-            <li><strong>Google Classroom:</strong> Una plataforma central para gestionar tareas, materiales y comunicación con los padres.</li>
-            <li><strong>Padlet:</strong> Funciona como un muro digital colaborativo donde los niños pueden subir fotos de sus trabajos.</li>
-        </ul>
+    <main>
+        <article class="container">
+            <h2>1.2 Herramientas Digitales Imprescindibles</h2>
+            
+            <p>
+                Para el docente moderno de primaria, existen herramientas que no solo facilitan el trabajo administrativo, sino que transforman la experiencia visual del aprendizaje. Algunas de las más efectivas son:
+            </p>
+            
+            <ul class="tools-list">
+                <li><strong>Canva para Educación:</strong> Permite crear infografías y presentaciones vibrantes que captan la atención de los niños de inmediato.</li>
+                <li><strong>Google Classroom:</strong> Facilita la organización de tareas y mantiene una comunicación fluida con los representantes.</li>
+                <li><strong>Padlet:</strong> Un muro colaborativo ideal para que los estudiantes compartan sus proyectos y trabajos artísticos de forma digital.</li>
+            </ul>
 
-        <div class="sabias-que" style="background: #fff9db; padding: 25px; border-left: 5px solid #fcc419; border-radius: 10px; margin: 30px 0;">
-            <strong style="display: block; margin-bottom: 10px;">💡 Sabías que...</strong>
-            <p style="margin: 0;">Usar muros digitales como Padlet ayuda a los estudiantes más introvertidos a participar activamente, ya que pueden expresar sus ideas de forma escrita y visual sin presión.</p>
-        </div>
+            <div class="sabias-que">
+                <strong>💡 Sabías que...</strong>
+                <p>El uso de muros digitales interactivos ayuda a los estudiantes más tímidos a participar activamente, permitiéndoles expresar sus ideas visualmente sin la presión de hablar frente a todo el grupo.</p>
+            </div>
 
-        <div class="nav-buttons">
-            <a href="u1-1.html" class="btn-prev">❮ Anterior (1.1)</a>
-            <a href="u1-3.html" class="btn-main" style="padding: 10px 25px;">Siguiente Lección ➔</a>
-        </div>
-    </article>
+            <div class="nav-buttons">
+                <a href="u1-1.html" class="btn-prev">❮ Anterior (1.1)</a>
+                <a href="u1-3.html" class="btn-next">Siguiente Lección ➔</a>
+            </div>
+        </article>
+    </main>
 
-    <footer><p>Sorgalim & Michel | 2026</p></footer>
+    <footer>Sorgalim Barreno & Michel Diaz | 2026</footer>
 </body>
 </html>

@@ -2,42 +2,163 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lección 1.1 - EduPortal</title>
-    <link rel="stylesheet" href="../../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff69b4;
+            --deep-purple: #8e44ad;
+            --light-blue: #e1f5fe;
+            --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
+        }
+
+        * { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
+            background-image: radial-gradient(#ff69b433 2px, transparent 2px);
+            background-size: 40px 40px;
+            color: #444;
+        }
+
+        /* Navegación */
+        nav { 
+            background: var(--gradient); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-shrink: 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { color: white; font-size: 1.2rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin-left: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        /* Contenido Principal */
+        main { 
+            flex: 1 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 30px 15px; 
+            width: 100%; 
+        }
+
+        /* Contenedor de la Lección */
+        .container {
+            background-color: white;
+            border: 3px solid var(--deep-purple);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: var(--primary-pink); margin-top: 0; margin-bottom: 20px; font-size: 1.8rem; }
+        p { font-weight: 600; line-height: 1.8; color: #2d3436; margin-bottom: 20px; }
+
+        /* Cuadro Sabías que */
+        .sabias-que {
+            background: #fff9db;
+            padding: 25px;
+            border-left: 5px solid #fcc419;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .sabias-que strong { display: block; margin-bottom: 10px; color: #e67e22; }
+        .sabias-que p { margin: 0; font-size: 1rem; color: #555; }
+
+        /* Botones de Navegación */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+        .btn-prev {
+            background: #dfe6e9;
+            color: #2d3436;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        .btn-next {
+            background: #ffeaa7;
+            color: #d63031;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer { 
+            background: #2d3436; 
+            color: white; 
+            text-align: center; 
+            padding: 15px; 
+            flex-shrink: 0; 
+            font-size: 0.8rem; 
+            width: 100%;
+        }
+
+        /* Ajuste Móvil */
+        @media (max-width: 600px) {
+            .nav-buttons { flex-direction: column-reverse; }
+            .btn-prev, .btn-next { width: 100%; text-align: center; }
+            .container { padding: 20px; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="logo">EduPortal ✨</div>
         <ul>
             <li><a href="../../index.html">Inicio</a></li>
-            <li><a href="../unidad1.html">Volver</a></li>
+            <li><a href="../../contenidos.html">Contenidos</a></li>
         </ul>
     </nav>
 
-    <article class="container">
-        <h2 style="color: var(--primary-pink); margin-bottom: 20px;">1.1 ¿Qué son las TIC en Primaria?</h2>
-        
-        <p>
-            Las TIC (Tecnologías de la Información y Comunicación) son herramientas que transforman la enseñanza tradicional. En la educación primaria, permiten que los niños aprendan de forma visual, auditiva e interactiva.
-        </p>
-        
-        <p>
-            Integrar la tecnología en el aula no es solo usar dispositivos; es desarrollar habilidades del siglo XXI, como la resolución de problemas y la colaboración digital desde una edad temprana.
-        </p>
+    <main>
+        <article class="container">
+            <h2>1.1 ¿Qué son las TIC en Primaria?</h2>
+            
+            <p>
+                Las TIC (Tecnologías de la Información y Comunicación) representan un cambio de paradigma en la enseñanza tradicional. En la educación primaria, permiten que los niños aprendan de forma visual, auditiva e interactiva.
+            </p>
+            
+            <p>
+                Integrar la tecnología en el aula no es solo usar dispositivos; es desarrollar habilidades del siglo XXI, como la resolución de problemas y la colaboración digital desde una edad temprana para preparar a los ciudadanos del futuro.
+            </p>
 
-        <div class="sabias-que" style="background: #fff9db; padding: 25px; border-left: 5px solid #fcc419; border-radius: 10px; margin: 30px 0;">
-            <strong style="display: block; margin-bottom: 10px;">💡 Sabías que...</strong>
-            <p style="margin: 0;">El uso de herramientas digitales puede aumentar el interés por el estudio en un 85% de los alumnos de primaria, mejorando la retención de datos.</p>
-        </div>
+            <div class="sabias-que">
+                <strong>💡 Sabías que...</strong>
+                <p>El uso de herramientas digitales puede aumentar el interés por el estudio en un 85% de los alumnos de primaria, mejorando notablemente la retención de datos complejos.</p>
+            </div>
 
-        <!-- Nueva navegación doble -->
-        <div class="nav-buttons">
-            <a href="../unidad1.html" class="btn-prev">❮ Anterior (Índice)</a>
-            <a href="u1-2.html" class="btn-main" style="padding: 10px 25px;">Siguiente Lección ➔</a>
-        </div>
-    </article>
+            <div class="nav-buttons">
+                <a href="../unidad1.html" class="btn-prev">❮ Índice Unidad 1</a>
+                <a href="u1-2.html" class="btn-next">Siguiente Lección ➔</a>
+            </div>
+        </article>
+    </main>
 
-    <footer><p>Sorgalim & Michel | 2026</p></footer>
+    <footer>Sorgalim Barreno & Michel Diaz | 2026</footer>
 </body>
 </html>

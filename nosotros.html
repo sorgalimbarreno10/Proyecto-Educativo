@@ -2,9 +2,129 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Nosotras - Nuestras Biografías</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - EduPortal</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff69b4;
+            --deep-purple: #8e44ad;
+            --light-blue: #e1f5fe;
+            --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
+        }
+
+        /* --- ESTRUCTURA BASE --- */
+        * { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
+            background-image: radial-gradient(#ff69b433 2px, transparent 2px);
+            background-size: 40px 40px;
+            color: #444;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav { 
+            background: var(--gradient); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-shrink: 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { color: white; font-size: 1.2rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin-left: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        /* --- CUERPO PRINCIPAL --- */
+        main { 
+            flex: 1 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 40px 15px; 
+            width: 100%; 
+        }
+
+        /* --- RECUADRO AZUL PRINCIPAL --- */
+        .container {
+            background-color: var(--light-blue);
+            border: 3px solid var(--deep-purple);
+            border-radius: 25px;
+            padding: 35px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--deep-purple);
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+
+        /* --- TARJETAS DE PERFIL --- */
+        .profile-card {
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 2px solid #b3e5fc;
+        }
+
+        .profile-img {
+            flex: 0 0 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary-pink);
+            margin-right: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info { flex: 1; }
+        .profile-info h3 { margin: 0; color: var(--deep-purple); font-size: 1.6rem; }
+        .tagline { color: var(--primary-pink); font-weight: bold; margin-bottom: 10px; display: block; font-size: 0.9rem; }
+        .bio-text { line-height: 1.6; color: #444; font-size: 0.95rem; font-weight: 600; }
+
+        /* --- FOOTER SIEMPRE ABAJO --- */
+        footer { 
+            background: #2d3436; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            flex-shrink: 0; 
+            font-size: 0.85rem; 
+            width: 100%;
+        }
+
+        /* --- AJUSTE MÓVIL --- */
+        @media (max-width: 700px) {
+            .section-title { font-size: 1.8rem; }
+            .container { padding: 20px; }
+            .profile-card { flex-direction: column; text-align: center; padding: 20px; }
+            .profile-img { margin-right: 0; margin-bottom: 15px; flex: 0 0 130px; height: 130px; }
+            nav { flex-direction: column; padding: 10px; }
+            nav ul { margin-top: 10px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -16,10 +136,10 @@
         </ul>
     </nav>
 
-    <main class="container">
-        <h2 class="section-title">Conoce a las Autoras</h2>
-        
-        <div class="perfiles-flex">
+    <main>
+        <div class="container">
+            <h2 class="section-title">Conoce a las Autoras</h2>
+            
             <!-- Perfil Sorgalim -->
             <div class="profile-card">
                 <div class="profile-img">
@@ -27,11 +147,9 @@
                 </div>
                 <div class="profile-info">
                     <h3>Sorgalim Barreno</h3>
-                    <p class="tagline">Futura Licenciada en Educación Primaria</p>
+                    <span class="tagline">Futura Licenciada en Educación Primaria</span>
                     <p class="bio-text">
-                        Actualmente curso la carrera de Educación Primaria con el propósito de obtener mi título de Licenciada y continuar ejerciendo la profesión que tanto amo. Desde hace varios años me he dedicado con compromiso, amor, esfuerzo y vocación a la formación de niños y niñas, contribuyendo a su desarrollo académico y personal.
-                        <br><br>
-                        Mi mayor satisfacción es enseñar, orientar y acompañar a los niños en su proceso de aprendizaje, dejando en ellos valores y enseñanzas que contribuyan a su futuro.
+                        Actualmente curso la carrera de Educación Primaria con el propósito de obtener mi título de Licenciada y continuar ejerciendo la profesión que tanto amo. Desde hace varios años me he dedicado con compromiso, amor, esfuerzo y vocación a la formación de niños y niñas, contribuyendo a su desarrollo académico y personal. Mi mayor satisfacción es enseñar, orientar y acompañar a los niños en su proceso de aprendizaje.
                     </p>
                 </div>
             </div>
@@ -43,19 +161,18 @@
                 </div>
                 <div class="profile-info">
                     <h3>Michel Diaz</h3>
-                    <p class="tagline">Estudiante de Educación Primaria / Investigadora</p>
+                    <span class="tagline">Estudiante de Educación Primaria / Investigadora</span>
                     <p class="bio-text">
-                        Dedicada al estudio de la pedagogía moderna y el desarrollo infantil. Mi enfoque se centra en crear espacios de aprendizaje inclusivos donde cada niño pueda descubrir su máximo potencial a través de la curiosidad y el juego dirigido.
-                        <br><br>
-                        Junto a mi compañera, busco innovar en las prácticas docentes para formar ciudadanos íntegros, creativos y capaces de enfrentar los retos de la sociedad actual.
+                        Dedicada al estudio de la pedagogía moderna y el desarrollo infantil. Mi enfoque se centra en crear espacios de aprendizaje inclusivos donde cada niño pueda descubrir su máximo potencial a través de la curiosidad y el juego dirigido. Junto a mi compañera, busco innovar en las prácticas docentes para formar ciudadanos íntegros, creativos y capaces de enfrentar los retos de la sociedad actual.
                     </p>
                 </div>
             </div>
+
         </div>
     </main>
 
     <footer>
-        <p>Sorgalim Barreno & Michel Diaz | Portafolio Educativo 2026</p>
+        Sorgalim Barreno & Michel Diaz | 2026
     </footer>
 </body>
 </html>

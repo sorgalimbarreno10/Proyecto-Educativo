@@ -3,9 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidades Académicas - EduPortal</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Contenidos - EduPortal</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff69b4;
+            --deep-purple: #8e44ad;
+            --light-purple: #a29bfe;
+            --gradient: linear-gradient(135deg, #ff69b4 0%, #8e44ad 100%);
+            --white: #ffffff;
+        }
+
+        /* --- ESTRUCTURA BASE --- */
+        * { box-sizing: border-box; }
+        html, body { height: 100%; margin: 0; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
+            background-image: radial-gradient(#ff69b433 2px, transparent 2px);
+            background-size: 40px 40px;
+            color: #444;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav { 
+            background: var(--gradient); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-shrink: 0; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { color: white; font-size: 1.2rem; font-weight: bold; }
+        nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+        nav ul li { margin-left: 15px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+
+        /* --- CUERPO PRINCIPAL --- */
+        main { 
+            flex: 1 0 auto; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            padding: 40px 20px; 
+            width: 100%; 
+        }
+
+        .page-header { text-align: center; margin-bottom: 40px; }
+        .page-header h1 { color: var(--deep-purple); margin: 0; font-size: 2.2rem; }
+        .page-header p { color: #666; font-weight: 600; margin-top: 5px; }
+
+        /* --- GRID DE TARJETAS (SIMETRÍA) --- */
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); 
+            gap: 25px; 
+            width: 100%; 
+            max-width: 1100px; 
+            justify-content: center; 
+        }
+
+        .card { 
+            background: white; 
+            border-radius: 20px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            border-bottom: 5px solid var(--primary-pink); 
+            transition: 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-8px); }
+
+        .card-header { background: var(--gradient); color: white; padding: 20px; text-align: center; }
+        .card-header h3 { margin: 0; font-size: 1.3rem; }
+
+        .card-body { 
+            padding: 25px; 
+            text-align: center; 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .card-body p { font-weight: 600; color: #555; line-height: 1.5; margin-bottom: 20px; }
+
+        /* --- BOTONES --- */
+        .btn-main { 
+            background: #ffeaa7; 
+            color: #d63031; 
+            padding: 12px 25px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.9rem; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            transition: 0.3s; 
+        }
+        .btn-main:hover { transform: scale(1.05); background: white; }
+
+        /* --- FOOTER SIEMPRE ABAJO --- */
+        footer { 
+            background: #2d3436; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            flex-shrink: 0; 
+            font-size: 0.85rem; 
+            width: 100%;
+        }
+
+        /* --- AJUSTE MÓVIL --- */
+        @media (max-width: 600px) {
+            .page-header h1 { font-size: 1.8rem; }
+            nav { flex-direction: column; padding: 10px; text-align: center; }
+            nav ul { margin-top: 10px; }
+            nav ul li { margin: 0 8px; }
+            .grid-container { grid-template-columns: 1fr; max-width: 320px; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -18,10 +141,9 @@
     </nav>
 
     <main>
-        <!-- Título y descripción dentro del main para empujar el footer -->
         <div class="page-header">
-            <h2 class="section-title">Nuestros Contenidos</h2>
-            <p class="subtitle">Explora las unidades pedagógicas que hemos desarrollado con amor.</p>
+            <h1>Nuestros Contenidos</h1>
+            <p>Explora los recursos educativos desarrollados para ti.</p>
         </div>
 
         <div class="grid-container">
@@ -29,7 +151,7 @@
             <div class="card">
                 <div class="card-header"><h3>Unidad 1: TIC</h3></div>
                 <div class="card-body">
-                    <p>Innovando en el aula con herramientas digitales de vanguardia para potenciar el aprendizaje infantil.</p>
+                    <p>Innovando en el aula con herramientas digitales para potenciar el aprendizaje infantil.</p>
                     <a href="unidades/unidad1.html" class="btn-main">Entrar a la Unidad</a>
                 </div>
             </div>
@@ -40,7 +162,7 @@
                     <h3>Unidad 2: Psicología</h3>
                 </div>
                 <div class="card-body">
-                    <p>Entendiendo el corazón y la mente de nuestros pequeños estudiantes en sus diferentes etapas.</p>
+                    <p>Entendiendo el corazón y la mente de nuestros pequeños estudiantes en sus etapas.</p>
                     <a href="unidades/unidad2.html" class="btn-main">Entrar a la Unidad</a>
                 </div>
             </div>
@@ -51,7 +173,7 @@
                     <h3>Unidad 3: Inclusión</h3>
                 </div>
                 <div class="card-body">
-                    <p>Estrategias reales y efectivas para una educación que abraza y celebra la diversidad.</p>
+                    <p>Estrategias reales para una educación que celebra y abraza la diversidad.</p>
                     <a href="unidades/unidad3.html" class="btn-main">Entrar a la Unidad</a>
                 </div>
             </div>
@@ -59,7 +181,7 @@
     </main>
 
     <footer>
-        <p>Sorgalim Barreno & Michel Diaz | 2026</p>
+        Sorgalim Barreno & Michel Diaz | 2026
     </footer>
 </body>
 </html>
