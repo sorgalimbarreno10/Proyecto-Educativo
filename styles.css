@@ -7,12 +7,8 @@
 
 * { box-sizing: border-box; }
 
-html, body {
-    height: 100%;
-    margin: 0;
-}
+html, body { height: 100%; margin: 0; }
 
-/* --- ESTRUCTURA PARA FOOTER SIEMPRE ABAJO --- */
 body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
@@ -20,139 +16,61 @@ body {
     background: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%); 
     background-image: radial-gradient(#ff69b433 2px, transparent 2px);
     background-size: 40px 40px;
+    color: #444;
 }
 
-nav {
-    background: var(--gradient);
-    padding: 1rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-}
+nav { background: var(--gradient); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.logo { color: white; font-size: 1.3rem; font-weight: bold; }
+nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+nav ul li { margin-left: 20px; }
+nav ul li a { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 
-main {
-    flex: 1 0 auto; /* OCUPA TODO EL ESPACIO Y EMPUJA EL FOOTER */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-}
+main { flex: 1 0 auto; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; width: 100%; }
 
-footer {
-    background: #2d3436;
-    color: white;
+footer { background: #2d3436; color: white; text-align: center; padding: 20px; flex-shrink: 0; }
+
+/* --- SECCIÓN DE CRÉDITOS (ARREGLADA) --- */
+.credits-section {
     text-align: center;
-    padding: 20px;
-    flex-shrink: 0;
-}
-
-/* --- ESTILOS DE TEXTO --- */
-.page-header { text-align: center; margin-bottom: 40px; }
-.section-title { color: var(--deep-purple); font-size: 2.2rem; margin: 0; }
-.subtitle { font-size: 1.1rem; color: #666; margin-top: 10px; }
-
-/* --- GRID RESPONSIVO Y SIMÉTRICO --- */
-.grid-container {
-    display: grid;
-    /* Esto hace que las cartas se centren y se ajusten solas */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
-    gap: 25px;
+    padding: 40px 20px;
+    margin-top: 20px;
     width: 100%;
-    justify-content: center; /* CENTRA LA UNIDAD 3 SI ESTÁ SOLA ABAJO */
+    /* Quitamos el fondo blanco para que se vean los puntos */
+    background: transparent; 
 }
 
-.card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 5px solid var(--primary-pink);
-    transition: 0.3s;
+/* --- CONTENEDORES (PARA UNIDADES Y LECCIONES) --- */
+.container {
+    background: white; /* Fondo blanco para lectura clara */
+    border: 3px solid var(--deep-purple);
+    border-radius: 25px;
+    padding: 30px;
+    max-width: 800px;
+    width: 100%; /* Ocupa todo el ancho en móvil */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
-.card:hover { transform: translateY(-8px); }
-.card-header { background: var(--gradient); color: white; padding: 20px; text-align: center; }
-.card-header h3 { margin: 0; font-size: 1.2rem; }
+.container h1, .container h2 { color: var(--deep-purple); text-align: center; margin-top: 0; }
+.container p { font-weight: 600; line-height: 1.7; color: #333; }
 
-.card-body { 
-    padding: 20px; 
-    text-align: center; 
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: space-between; 
-}
+/* --- LISTAS DE LECCIONES --- */
+ul.lesson-list { list-style: none; padding: 0; margin: 20px 0; }
+.lesson-list li { background: #f3f0ff; margin: 12px 0; border-radius: 12px; transition: 0.3s; overflow: hidden; }
+.lesson-list li:hover { transform: translateX(10px); background: #e9e3ff; }
+.lesson-list li a { display: block; padding: 18px 25px; text-decoration: none; color: #444; font-weight: bold; width: 100%; }
 
 /* --- BOTONES --- */
-.btn-main, .btn-purple {
-    padding: 12px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    font-size: 0.9rem;
-    transition: 0.3s;
-}
-.btn-main { background: #ffeaa7; color: #d63031; }
-.btn-purple { background: var(--deep-purple); color: white; }
+.btn-main, .btn-prev { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+.btn-main { background: #ffeaa7; color: #d63031; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn-prev { background: #dfe6e9; color: #444; font-size: 0.8rem; }
 
-.btn-read-more {
-    color: var(--primary-pink);
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    transition: 0.3s;
-}
+.nav-buttons { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; gap: 10px; width: 100%; }
 
-.btn-read-more:hover {
-    transform: scale(1.1);
-    color: var(--deep-purple);
-}
-
-.credits-section {
-    background: white;
-    padding: 60px 20px;
-    text-align: center;
-    border-top: 5px solid var(--light-purple);
-    width: 100%;
-}
-
-.credits-section h2 {
-    color: var(--deep-purple);
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-}
-
-.credits-section p {
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 20px;
-}
-
-
-/* --- AJUSTE PARA MÓVIL --- */
-@media (max-width: 768px) {
-    .section-title { font-size: 1.8rem; }
-    nav { flex-direction: column; padding: 15px; text-align: center; }
-    nav ul { margin-top: 10px; padding: 0; }
-    nav ul li { margin: 0 10px; }
-    
-    .grid-container {
-        grid-template-columns: 1fr; /* Una sola columna en móvil para evitar errores */
-        max-width: 320px;
-    }
-    .hero {
-        padding: 80px 20px; /* Más espacio arriba y abajo en móviles */
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .credits-section {
-        padding: 40px 20px;
-    }
+/* --- VISTA MÓVIL --- */
+@media (max-width: 600px) {
+    main { padding: 20px 15px; }
+    .container { padding: 20px; border-radius: 15px; }
+    .hero h1 { font-size: 1.8rem; }
+    .nav-buttons { flex-direction: column-reverse; }
+    .btn-main, .btn-prev { width: 100%; text-align: center; }
 }
